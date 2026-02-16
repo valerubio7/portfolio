@@ -19,7 +19,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
  * Replace FORMSPREE_ENDPOINT and CONTACT_LINKS with real values.
  */
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqedbqen";
 
 /** Contact channels — replace with your real links */
 const CONTACT_LINKS = [
