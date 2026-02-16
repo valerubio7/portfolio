@@ -4,12 +4,13 @@ import type { MetadataRoute } from "next";
  * Generates robots.txt at build time.
  * Allows all crawlers; points to the sitemap.
  */
+export const revalidate = 60 * 60 * 24; // 1 día
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: "https://valerubio.dev/sitemap.xml",
-  };
+	return {
+		rules: {
+			userAgent: "*",
+			allow: "/",
+		},
+		sitemap: "https://valerubio.dev/sitemap.xml",
+	};
 }
