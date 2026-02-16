@@ -1,4 +1,4 @@
-name: Deploy Next.js site to Pages (Bun)
+name: Deploy Next.js site to Pages
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         with:
           bun-version: latest
 
-      # Setup Node (Next still requires Node runtime)
+      # (Opcional pero recomendado) Node runtime para compatibilidad con Next
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -39,7 +39,6 @@ jobs:
         with:
           static_site_generator: next
 
-      # Cache Next.js build cache
       - name: Restore Next.js cache
         uses: actions/cache@v4
         with:
@@ -50,7 +49,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('bun.lockb') }}-
 
       - name: Install dependencies
-        run: bun install
+        run: bun install --frozen-lockfile
 
       - name: Build with Next.js
         run: bun run build
