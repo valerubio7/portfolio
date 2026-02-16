@@ -1,26 +1,295 @@
 @import "tailwindcss";
 
+/* ============================================
+   Design Tokens — Terminal / Technical Identity
+   
+   Dark-first palette inspired by code editors
+   and terminal environments. Violet accent mirrors
+   function/method highlighting in popular themes.
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces — warm paper, not cold zinc
+     Background is slightly creamy. Surface-1 (cards) is
+     pure white so they "lift" above the page naturally. */
+  --background: #f8f7f4;
+  --surface-1: #ffffff;
+  --surface-2: #f0eeeb;
+  --foreground: #1a1a1a;
+
+  /* Accent — deeper violet for light backgrounds
+     Less saturated than dark mode counterpart so it
+     doesn't vibrate against the warm paper. */
+  --accent: #6d28d9;
+  --accent-hover: #5b21b6;
+  --accent-solid: #6d28d9;
+  --accent-solid-hover: #5b21b6;
+  --accent-subtle: rgba(109, 40, 217, 0.06);
+  --accent-muted: rgba(109, 40, 217, 0.12);
+
+  /* Terminal green — darker for legibility on light bg */
+  --terminal: #15803d;
+  --terminal-subtle: rgba(21, 128, 61, 0.08);
+
+  /* Text — warm blacks, not pure zinc */
+  --ink: #1a1a1a;
+  --ink-secondary: #484848;
+  --ink-muted: #6b6b6b;
+  --ink-faint: #9ca3af;
+
+  /* Borders — visible but quiet. Warm-tinted. */
+  --edge: rgba(0, 0, 0, 0.1);
+  --edge-hover: rgba(0, 0, 0, 0.18);
+  --edge-strong: rgba(0, 0, 0, 0.22);
+
+  /* Controls — inset feel, slightly darker than surface */
+  --control-bg: #f0eeeb;
+  --control-bg-hover: #e8e6e1;
+
+  /* Semantic */
+  --destructive: #dc2626;
+  --warning: #d97706;
+  --success: #15803d;
 }
+
+.dark {
+  /* Surfaces — true dark, like a terminal at midnight */
+  --background: #0a0a0b;
+  --surface-1: #141415;
+  --surface-2: #1c1c1e;
+  --foreground: #e4e4e7;
+
+  /* Accent — lighter violet for dark backgrounds (text/links).
+     accent-solid is deeper for filled surfaces (buttons)
+     where white text needs strong contrast. */
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-solid: #7c3aed;
+  --accent-solid-hover: #6d28d9;
+  --accent-subtle: rgba(167, 139, 250, 0.08);
+  --accent-muted: rgba(167, 139, 250, 0.12);
+
+  /* Terminal green — brighter for dark bg */
+  --terminal: #4ade80;
+  --terminal-subtle: rgba(74, 222, 128, 0.08);
+
+  /* Text — terminal white, not pure #fff */
+  --ink: #e4e4e7;
+  --ink-secondary: #a1a1aa;
+  --ink-muted: #71717a;
+  --ink-faint: #3f3f46;
+
+  /* Borders — white at low opacity */
+  --edge: rgba(255, 255, 255, 0.06);
+  --edge-hover: rgba(255, 255, 255, 0.1);
+  --edge-strong: rgba(255, 255, 255, 0.15);
+
+  /* Controls */
+  --control-bg: #1c1c1e;
+  --control-bg-hover: #27272a;
+
+  /* Semantic — slightly desaturated for dark mode */
+  --destructive: #ef4444;
+  --warning: #f59e0b;
+  --success: #4ade80;
+}
+
+/* ============================================
+   Tailwind v4 Theme Mapping
+   Token names reflect the product domain,
+   not generic "primary/secondary" labels.
+   ============================================ */
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
   --color-foreground: var(--foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-hover: var(--accent-solid-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-muted: var(--accent-muted);
+
+  --color-terminal: var(--terminal);
+  --color-terminal-subtle: var(--terminal-subtle);
+
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-edge: var(--edge);
+  --color-edge-hover: var(--edge-hover);
+  --color-edge-strong: var(--edge-strong);
+
+  --color-control-bg: var(--control-bg);
+  --color-control-bg-hover: var(--control-bg-hover);
+
+  --color-destructive: var(--destructive);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   Base
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  /* Navbar is h-14 (3.5rem). Adding 1rem breathing room = 4.5rem total */
+  scroll-padding-top: 4.5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ============================================
+   Scroll Animations
+   Subtle, fast. No bouncing, no spring.
+   Deceleration easing (ease-out).
+   ============================================ */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.is-visible {
+  animation: fade-up 0.5s ease-out forwards;
+}
+
+.animate-on-scroll.animate-fade.is-visible {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-on-scroll.animate-slide-left.is-visible {
+  animation: slide-left 0.5s ease-out forwards;
+}
+
+/* Stagger for lists — 80ms apart, fast enough to feel sequential */
+.stagger-1 { animation-delay: 0.08s; }
+.stagger-2 { animation-delay: 0.16s; }
+.stagger-3 { animation-delay: 0.24s; }
+.stagger-4 { animation-delay: 0.32s; }
+.stagger-5 { animation-delay: 0.40s; }
+
+/* ============================================
+   Typing cursor blink — signature element
+   ============================================ */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ============================================
+   Selection & Focus — accent-colored
+   ============================================ */
+
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+.dark ::selection {
+  color: #0a0a0b;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Scrollbar — minimal, almost invisible
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink-faint);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-muted);
+}
+
+/* ============================================
+   Reduced Motion — respect user preferences
+   Disable all scroll animations and transitions
+   for users who prefer reduced motion.
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+  }
+
+  .animate-on-scroll.is-visible {
+    animation: none;
+  }
+
+  .animate-on-scroll.animate-fade.is-visible {
+    animation: none;
+  }
+
+  .animate-on-scroll.animate-slide-left.is-visible {
+    animation: none;
+  }
+
+  .cursor-blink {
+    animation: none;
+  }
 }
