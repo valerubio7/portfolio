@@ -33,13 +33,19 @@ export const metadata: Metadata = {
 		default: "Valentin Rubio Portfolio",
 		template: "%s | Valentin Rubio",
 	},
-	description: "Backend developer transitioning into ML and Data Engineering.",
+	description: "MLOps & Backend Engineer. Building production ML systems, data pipelines, and cloud-native infrastructure.",
 	keywords: [
-		"backend developer",
+		"MLOps",
 		"machine learning",
+		"backend developer",
+		"ML engineer",
+		"DevOps",
 		"data engineering",
 		"Python",
-		"TypeScript",
+		"FastAPI",
+		"Django",
+		"Docker",
+		"AWS",
 		"portfolio",
 		"Valentin Rubio",
 	],
@@ -51,9 +57,9 @@ export const metadata: Metadata = {
 		alternateLocale: "en_US",
 		url: siteUrl,
 		siteName: "Vale Rubio — Portfolio",
-		title: "Vale Rubio — Backend & ML Engineer",
+		title: "Vale Rubio — MLOps & Backend Engineer",
 		description:
-			"Backend developer transitioning into ML and Data Engineering.",
+			"MLOps & Backend Engineer. Building production ML systems, data pipelines, and cloud-native infrastructure.",
 		// TODO: add an OG image once you have one:
 		// images: [{ url: "/og.png", width: 1200, height: 630, alt: "Vale Rubio — Portfolio" }],
 	},
@@ -61,7 +67,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Valentin Rubio Portfolio",
 		description:
-			"Backend developer transitioning into ML and Data Engineering.",
+			"MLOps & Backend Engineer. Building production ML systems, data pipelines, and cloud-native infrastructure.",
 		// TODO: add twitter handle:
 		// creator: "@valerubio",
 	},

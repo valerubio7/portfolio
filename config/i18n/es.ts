@@ -9,16 +9,16 @@ export const es: Translations = {
 	hero: {
 		greeting: "Hola, soy",
 		name: "Valentin Rubio",
-		role: "Desarrollador Backend",
+		role: "MLOps & Backend Engineer",
 		description:
-			"Desarrollo sistemas y aplicaciones con enfoque en arquitectura, rendimiento y mantenibilidad. Combino fundamentos matemáticos sólidos con buenas prácticas de ingeniería para construir soluciones claras, escalables y bien diseñadas.",
+			"Estudiante avanzado de Ingeniería en Sistemas en UTN, enfocado en MLOps, desarrollo backend y sistemas de machine learning en producción. Construyo APIs para servir modelos, pipelines de datos, tracking de experimentos, monitoreo, detección de drift e infraestructura cloud-native.",
 		cta: "Ver proyectos",
 		contact: "Contactame",
 	},
 	about: {
 		title: "Sobre mi",
 		description:
-			"Soy un desarrollador con experiencia en la creacion de aplicaciones web completas. Me apasiona aprender nuevas tecnologias y construir soluciones que impacten positivamente a los usuarios.",
+			"Soy estudiante avanzado de Ingeniería en Sistemas en UTN, enfocado en construir sistemas de machine learning orientados a producción, APIs backend, pipelines de datos e infraestructura cloud-native. Mi objetivo profesional es crecer como MLOps Engineer, aunque también me interesan roles como ML Engineer, DevOps, Backend Engineer o Data Engineer.",
 		techTitle: "Tecnologias",
 	},
 	projects: {

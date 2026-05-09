@@ -28,42 +28,99 @@ interface Skill {
 }
 
 const SKILLS: Record<string, Skill[]> = {
-	backend: [
+	languages: [
 		{ name: "Python", icon: "python" },
+		{ name: "SQL", icon: null },
+		{ name: "Bash", icon: "bash" },
+	],
+	backend: [
 		{ name: "FastAPI", icon: "fastapi" },
 		{ name: "Django", icon: "django", variant: "plain" },
+		{ name: "Django REST Framework", icon: null },
+		{ name: "SQLAlchemy", icon: "sqlalchemy" },
 	],
-	data: [{ name: "PostgreSQL", icon: "postgresql" }],
-	ml: [
-		{ name: "Pandas", icon: "pandas" },
+	databases: [
+		{ name: "PostgreSQL", icon: "postgresql" },
+		{ name: "TimescaleDB", icon: null },
+		{ name: "Redis", icon: "redis" },
+		{ name: "SQLite", icon: "sqlite" },
+	],
+	mlops: [
+		{ name: "MLflow", icon: null },
+		{ name: "Prefect", icon: null },
+		{ name: "Apache Airflow", icon: "apacheairflow" },
+		{ name: "XGBoost", icon: null },
 		{ name: "Scikit-learn", icon: "scikitlearn" },
+		{ name: "Drift Detection", icon: null },
 	],
-	infra: [{ name: "Docker", icon: "docker" }],
+	data: [
+		{ name: "Apache Kafka", icon: "apachekafka" },
+		{ name: "Event-Driven Architecture", icon: null },
+		{ name: "Data Pipelines", icon: null },
+	],
+	devops: [
+		{ name: "Docker", icon: "docker" },
+		{ name: "Docker Compose", icon: "docker" },
+		{ name: "AWS", icon: "amazonwebservices" },
+		{ name: "Traefik", icon: "traefikproxy" },
+		{ name: "CI/CD", icon: null },
+	],
+	observability: [
+		{ name: "Prometheus", icon: "prometheus" },
+		{ name: "Grafana", icon: "grafana" },
+		{ name: "Monitoring", icon: null },
+		{ name: "Metrics", icon: null },
+	],
+	testing: [
+		{ name: "pytest", icon: "pytest" },
+		{ name: "Unit Testing", icon: null },
+		{ name: "Integration Testing", icon: null },
+	],
 	tools: [
 		{ name: "Git", icon: "git" },
 		{ name: "GitHub", icon: "github" },
+		{ name: "GitHub Actions", icon: "githubactions" },
 		{ name: "Linux", icon: "linux" },
-		{ name: "Bash", icon: "bash" },
-		{ name: "CI/CD", icon: null },
-		{ name: "REST APIs", icon: null },
+		{ name: "Claude Code", icon: null },
+		{ name: "OpenCode", icon: null },
 	],
-	knowledge: [
-		{ name: "Data Structures & Algorithms", icon: null },
-		{ name: "Clean Code & SOLID Principles", icon: null },
-		{ name: "Object-Oriented Programming", icon: null },
-		{ name: "Test-Driven Development", icon: null },
-		{ name: "Agile Methodologies", icon: null },
-		{ name: "Advanced Mathematics", icon: null },
+	principles: [
+		{ name: "SOLID", icon: null },
+		{ name: "DRY", icon: null },
+		{ name: "KISS", icon: null },
+		{ name: "YAGNI", icon: null },
+		{ name: "Clean Architecture", icon: null },
+		{ name: "Service Layer Pattern", icon: null },
+		{ name: "Repository Pattern", icon: null },
+		{ name: "Spec-Driven Development", icon: null },
+		{ name: "Automated Testing", icon: null },
+		{ name: "Container-First", icon: null },
+		{ name: "Observability", icon: null },
+	],
+	academic: [
+		{ name: "Systems Engineering", icon: null },
+		{ name: "Calculus", icon: null },
+		{ name: "Linear Algebra", icon: null },
+		{ name: "Statistics", icon: null },
+		{ name: "Software Architecture", icon: null },
+		{ name: "Databases", icon: null },
+		{ name: "Algorithms & Data Structures", icon: null },
+		{ name: "Operating Systems", icon: null },
 	],
 };
 
 const CATEGORY_LABELS: Record<string, Record<string, string>> = {
+	languages: { es: "lenguajes", en: "languages" },
 	backend: { es: "backend", en: "backend" },
-	data: { es: "datos", en: "data" },
-	ml: { es: "ml/ai", en: "ml/ai" },
-	infra: { es: "infraestructura", en: "infrastructure" },
+	databases: { es: "bases de datos", en: "databases" },
+	mlops: { es: "mlops & ml", en: "mlops & ml" },
+	data: { es: "data streaming", en: "data streaming" },
+	devops: { es: "devops & cloud", en: "devops & cloud" },
+	observability: { es: "observabilidad", en: "observability" },
+	testing: { es: "testing", en: "testing" },
 	tools: { es: "herramientas", en: "tools" },
-	knowledge: { es: "conocimientos", en: "knowledge" },
+	principles: { es: "principios", en: "principles" },
+	academic: { es: "formacion", en: "academic" },
 };
 
 /** Builds the devicon CDN URL for a given icon */

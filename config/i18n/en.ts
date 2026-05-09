@@ -9,16 +9,16 @@ export const en: Translations = {
 	hero: {
 		greeting: "Hi, I'm",
 		name: "Valentin Rubio",
-		role: "Backend Developer",
+		role: "MLOps & Backend Engineer",
 		description:
-			"I develop systems and applications with a strong focus on architecture, performance, and maintainability. I combine solid mathematical foundations with engineering best practices to build clear, scalable, and well-designed solutions.",
+			"Advanced Systems Engineering student at UTN, focused on MLOps, backend development, and production-ready machine learning systems. I build APIs for model serving, data pipelines, experiment tracking, monitoring, drift detection, and cloud-native infrastructure.",
 		cta: "View projects",
 		contact: "Get in touch",
 	},
 	about: {
 		title: "About me",
 		description:
-			"I'm a developer with experience building full-stack web applications. I'm passionate about learning new technologies and building solutions that positively impact users.",
+			"I'm an advanced Systems Engineering student at UTN, focused on building production-oriented machine learning systems, backend APIs, data pipelines, and cloud-native infrastructure. My main professional goal is to grow as an MLOps Engineer, while also fitting naturally into roles such as ML Engineer, DevOps, Backend Engineer, or Data Engineer.",
 		techTitle: "Technologies",
 	},
 	projects: {
